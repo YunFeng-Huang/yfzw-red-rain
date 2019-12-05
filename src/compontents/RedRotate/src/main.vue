@@ -1,14 +1,25 @@
 <template>
   <div class="rotate" :class="{'animation':animationType}">
-    <div class="back"></div>
+    <div class="back" :style="{background: `url(${rotateBg[0]})no-repeat center/cover`}"></div>
     <div class="middle" v-for="(item,index) in middle" :key="index" :style="{transform: 'translateZ('+item+'px)'}"></div>
-    <div class="positive"></div>
+    <div class="positive" :style="{background: `url(${rotateBg[1]})no-repeat center/cover`}"></div>
   </div>
 </template>
 <script>
 
 export default {
-  name: 'RedRotate',
+  props:{
+    rotateBg:{
+      type:Array,
+      default:()=> {
+        return [
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_27/ba56e201910271232157807.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_27/e96ad201910271232063588.png'
+        ]
+      }
+    },
+  },
+  name: 'v-rotate',
   data() {
     return {
       middle: [1, 2, 3, 4, 5, 6],
@@ -31,8 +42,6 @@ export default {
     border-radius: 100%;
   }
   .back {
-    // background: #ffbb8d;
-    background: url("https://kouhigh.kouhigh.top/upload/app/2019_10_27/ba56e201910271232157807.png")no-repeat center/cover;
     border-radius: 100%;
   }
   .positive,.middle,.back{
@@ -47,7 +56,6 @@ export default {
     transform: translateZ(1px);
   }
   .positive {
-    background: url("https://kouhigh.kouhigh.top/upload/app/2019_10_27/e96ad201910271232063588.png")no-repeat center/cover;
     transform: translateZ(6px);
   }
   @keyframes spin {

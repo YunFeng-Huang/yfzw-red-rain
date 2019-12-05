@@ -1,14 +1,14 @@
 <template>
 <div class="ser_home" :style="{'background':`rgba(0, 0, 0, ${Bgcolor})`}">
   <div class="num" @click="show = true" v-if="numImgType > 0">
-    <img class="a1" v-if="!show" src="https://kouhigh.kouhigh.top/upload/app/2019_10_25/efbdc201910251711458713.png" alt="">
+    <img class="a1" v-if="!show" :src="count[0]" alt="">
     <p style="margin:0;transform: translateY(-20px);"><img :src="numImg"></p>
-    <img class="a2" v-if="!show" src="https://kouhigh.kouhigh.top/upload/app/2019_10_25/6bc77201910251711524221.png" alt="">
+    <img class="a2" v-if="!show" :src="count[1]" alt="">
   </div>
   <div class="header" v-if="show">
     <span class="i-1">
       <div class="rotate_w" v-for="item,index in rotateList" :key="index" @webkitAnimationEnd="removeDom2">
-        <v-rotate ref="rotate"></v-rotate>
+        <v-rotate :rotateBg="rotateBg" ref="rotate"></v-rotate>
       </div>
       <i>{{ClickTime}}</i>
     </span>
@@ -27,14 +27,14 @@
   <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
     <div id='adv' v-if="value">
       <div>
-        <a id="close" @click="_Close" style='position:absolute;z-index:1;right:0;top:0;color:#fff'>
+        <a id="close" @click="Close" style='position:absolute;z-index:1;right:0;top:0;color:#fff'>
           <span class="icon iconfont iconjiaocha_cross"></span>
         </a>
         <a class='link'>
           $<strong>{{reward}}</strong>
         </a>
-        <a class="btn" @click="Use">
-          去使用>
+        <a class="btn" @click="Submit">
+          去使用 >
         </a>
         <span class="time">{{ClickTime}}</span>
       </div>
@@ -46,12 +46,10 @@
 
 <script>
 import Vue from 'vue'
-import vRotate from '../../RedRotate/src/main';
+import vRotate from './RedRotate/src/main';
+// import vRotate from '../../RedRotate/src/main';
 import animated from 'animate.css'
 Vue.use(animated)
-// import '@/assets/js/api.js';
-// import axios from 'axios';
-// import {changeApp} from '@/assets/js/H5ToApp.js'
 export default {
   props:{
     value:{
@@ -72,9 +70,55 @@ export default {
     Bgcolor:{
       type:Number,
       default:0.2
+    },
+    reward:{
+      type:String,
+      default:''
+    },
+    rotateBg:{
+      type:Array,
+      default:()=> {
+        return [
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_27/ba56e201910271232157807.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_27/e96ad201910271232063588.png'
+        ]
+      }
+    },
+    count:{
+      type:Array,
+      default:()=> {
+        return [
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_25/efbdc201910251711458713.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_25/6bc77201910251711524221.png'
+        ]
+      }
+    },
+    defaultNumImg:{
+      type:Array,
+      default:()=> {
+        return [
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/b204920191026095917842.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/fdd8a201910260959259069.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/ba8ee201910260959349423.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/571ce201910260959433938.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/84a50201910260959516428.png'
+        ]
+      }
+    },
+    RedStyle:{
+      type:Array,
+      default:()=>{
+        return [
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_25/1d7d2201910251115582255.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_25/ff62a201910251115501901.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_25/88790201910251115439935.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_25/d40d5201910251115361154.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/84a50201910260959516428.png'
+        ]
+      }
     }
   },
-  name:'RedRain',
+  name:'v-red-rain',
   data() {
     let sunTimePop = this.sunTimePop
     return {
@@ -82,19 +126,21 @@ export default {
       timer: null,
       show: false,
       showNum: false,
+      rotateList: [],
       hbTime: 0,
       ClickTime: 0,
-      numImg: 'https://kouhigh.kouhigh.top/upload/app/2019_10_26/84a50201910260959516428.png',
-      numImgType: 5,
+      numImg: this.defaultNumImg[4],
+      numImgType: this.defaultNumImg.length,
       sunTime: sunTimePop,
-      rotateList: [],
-      reward: '',
       config:{},
       timeA:0
     }
   },
   mounted() {
-    this.set_setTimeout();
+    this.$nextTick(()=>{
+      console.log('开始倒计时')
+      this.set_setTimeout();
+    })
   },
   watch: {
     sunTime(val) {
@@ -105,45 +151,27 @@ export default {
       }
     },
     numImgType(val) {
-      switch (val) {
-        case 2:
-          this.numImg = 'https://kouhigh.kouhigh.top/upload/app/2019_10_26/fdd8a201910260959259069.png'
-          break;
-        case 3:
-          this.numImg = 'https://kouhigh.kouhigh.top/upload/app/2019_10_26/ba8ee201910260959349423.png'
-          break;
-        case 4:
-          this.numImg = 'https://kouhigh.kouhigh.top/upload/app/2019_10_26/571ce201910260959433938.png'
-          break;
-        case 1:
-          this.numImg = 'https://kouhigh.kouhigh.top/upload/app/2019_10_26/b204920191026095917842.png'
-          break;
-        default:
-          this.show = true;
-          this.sunTime = this.sunTimePop;
-          this.numImg = '';
-          this.startRedPacket();
-          this.set_setInterval = setInterval(() => {
-            this.sunTime--;
-          }, 1000)
+      console.log(val)
+      if(val>0){
+        this.numImg = this.defaultNumImg[val-1]
+      }else{
+        this.show = true;
+        this.sunTime = this.sunTimePop;
+        this.numImg = '';
+        this.startRedPacket();
+        this.set_setInterval = setInterval(() => {
+          this.sunTime--;
+        }, 1000)
       }
     }
   },
   methods: {
-    getURLSearchParams(url) {
-      if (url) {
-        url = url.slice(url.indexOf("?"));
-      } else {
-        url = window.location.search.replace(/\?/gi, "");
-      }
-      return new URLSearchParams(url);
-    },
-    _Close(){
+    Close(){
       this.$emit('input',false)
       this.$emit('Close')
     },
-    Use() {
-      this.$emit('Use')
+    Submit() {
+      this.$emit('Submit')
     },
     search(){
       setTimeout(()=>{
@@ -186,29 +214,15 @@ export default {
       let rotate = (parseInt(Math.random() * (45 - (-45)) - 45)) + "deg"; // 旋转角度
       //   let rotate = "0deg"; // 旋转角度
       let scales = (Math.random() * (9 - 8 + 1) + 7) * this.scales; // 图片尺寸
-      let durTime = (Math.random() * (2.5 - 1.2 + 1) + this.durTime) + 's'; // 时间  1.2和1.2这个数值保持一样
+      let durTime = (Math.random() * (2.5 - this.durTime + 1) + this.durTime) + 's'; // 时间  1.2和1.2这个数值保持一样
       //   let durTime = '5s'; // 时间  1.2和1.2这个数值保持一样
-      let val = this.hbTime % 4
-      let str = ''
-      switch (val) {
-        case 1:
-          str = `https://kouhigh.kouhigh.top/upload/app/2019_10_25/1d7d2201910251115582255.png`
-          break;
-        case 2:
-          str = `https://kouhigh.kouhigh.top/upload/app/2019_10_25/ff62a201910251115501901.png`
-          break;
-        case 3:
-          str = `https://kouhigh.kouhigh.top/upload/app/2019_10_25/88790201910251115439935.png`
-          break;
-        default:
-          str = `https://kouhigh.kouhigh.top/upload/app/2019_10_25/d40d5201910251115361154.png`
-      }
+      let val = this.hbTime % this.RedStyle.length
       this.liParams.push({
         left: left + 'px',
         cls: 'move_1',
         transforms: 'rotate(' + rotate + ') scale(' + scales + ')',
         durTime: durTime,
-        hb: str
+        hb: this.RedStyle[val]
       })
       this.timer = setTimeout(() => {
         this.hbTime++
