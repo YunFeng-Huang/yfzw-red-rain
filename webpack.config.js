@@ -54,7 +54,25 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: "file-loader",
         options: {
-          name: "[name].[ext]?[hash]"
+          name: "img/[name].[hash:8].[ext]" //自动hash命名图片等资源，并修改路径。路径需要根据项目实际情况确定。语法参考：https://doc.webpack-china.org/loaders/file-loader/
+        }
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: "url-loader",
+        options: {
+          limit: 10000,
+          // name: utils.assetsPath('media/[name].[hash:7].[ext]')
+          name: "media/[name].[hash:8].[ext]"
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: "url-loader",
+        options: {
+          limit: 10000,
+          // name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: "fonts/[name].[hash:8].[ext]"
         }
       }
     ]

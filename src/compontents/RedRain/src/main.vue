@@ -46,10 +46,10 @@
 
 <script>
 import Vue from 'vue'
-import vRotate from './RedRotate/src/main';
-// import vRotate from '../../RedRotate/src/main';
+// import vRotate from './RedRotate/src/main';
+import vRotate from '../../RedRotate/src/main';
 import animated from 'animate.css'
-import "/src/assets/fonts/iconfont.css";
+import "../../../../src/assets/fonts/iconfont.css";
 Vue.use(animated)
 export default {
   props:{
@@ -147,7 +147,7 @@ export default {
   watch: {
     reward(val){
       console.log(val,'reward');
-      this.value =true
+      this.value = true
     },
     sunTime(val) {
       if (val == 0) {
@@ -293,8 +293,8 @@ export default {
 
   a.link {
     position: absolute;
-    right: 42px;
-    bottom: 140px;
+    right: 34px;
+    bottom: 132px;
     font-weight: 700;
     color: #f56825;
     font-size: 10px;
@@ -331,7 +331,7 @@ export default {
   }
   span.time{
     position: absolute;
-    bottom: 18px;
+    bottom: 22px;
     left: 152px;
     width: 20px;
     display: inline-block;
