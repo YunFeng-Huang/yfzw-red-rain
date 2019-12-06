@@ -29,8 +29,6 @@ Vue.use(RedRotate)  //银币旋转
 
 # props
 
-advShow      // 控制红包雨弹框
-  type:Boolean,
 
 sunTimePop   // 红包雨持续时间
   type:Number,

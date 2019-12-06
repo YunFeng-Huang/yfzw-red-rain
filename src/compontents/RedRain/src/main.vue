@@ -49,12 +49,13 @@ import Vue from 'vue'
 import vRotate from './RedRotate/src/main';
 // import vRotate from '../../RedRotate/src/main';
 import animated from 'animate.css'
+import "/src/assets/fonts/iconfont.css";
 Vue.use(animated)
 export default {
   props:{
-    value:{
-      type:Boolean,
-    },
+    // value:{
+    //   type:Boolean,
+    // },
     sunTimePop:{
       type:Number,
       default:30
@@ -133,7 +134,8 @@ export default {
       numImgType: this.defaultNumImg.length,
       sunTime: sunTimePop,
       config:{},
-      timeA:0
+      timeA:0,
+      value:false
     }
   },
   mounted() {
@@ -143,6 +145,10 @@ export default {
     })
   },
   watch: {
+    reward(val){
+      console.log(val,'reward');
+      this.value =true
+    },
     sunTime(val) {
       if (val == 0) {
         this.search()

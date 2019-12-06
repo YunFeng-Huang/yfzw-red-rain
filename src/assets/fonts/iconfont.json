@@ -1,0 +1,121 @@
+{
+  "id": "1433272",
+  "name": "yunfeng",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11103640",
+      "name": "眼睛",
+      "font_class": "yanjing",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "11103641",
+      "name": "眼睛_闭",
+      "font_class": "yanjing_bi",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "11178997",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "11326418",
+      "name": "交叉_cross80",
+      "font_class": "jiaocha_cross",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "11326419",
+      "name": "勾号",
+      "font_class": "gouhao",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "11348400",
+      "name": "零食",
+      "font_class": "lingshi",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "11350484",
+      "name": "WH旅游度假",
+      "font_class": "WHlvyoudujia",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "11350491",
+      "name": "服饰",
+      "font_class": "fushi",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "11350503",
+      "name": "化妆品",
+      "font_class": "huazhuangpin",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "11350521",
+      "name": "家装家具",
+      "font_class": "jiazhuangjiaju",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "11350527",
+      "name": "交通",
+      "font_class": "jiaotong",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "11350538",
+      "name": "教育",
+      "font_class": "jiaoyu",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "11350547",
+      "name": "酒店",
+      "font_class": "jiudian",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "11350571",
+      "name": "咖啡",
+      "font_class": "kafei",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "11350576",
+      "name": "个护化妆的副本",
+      "font_class": "gehuhuazhuangdefuben",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "11939822",
+      "name": "kefu",
+      "font_class": "icon-test",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    }
+  ]
+}
