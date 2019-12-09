@@ -1,18 +1,18 @@
 <template>
-<div class="ser_home" :style="{'background':`rgba(0, 0, 0, ${Bgcolor})`}">
+<div class="ser_home" :style="{'background':`rgba(0, 0, 0, ${Bgcolor}`}">
   <div class="num" @click="show = true" v-if="numImgType > 0">
-    <img class="a1" v-if="!show" :src="count[0]" alt="">
+    <img class="a1" v-if="!show" :src="homeImg[0]" alt="">
     <p style="margin:0;transform: translateY(-20px);"><img :src="numImg"></p>
-    <img class="a2" v-if="!show" :src="count[1]" alt="">
+    <img class="a2" v-if="!show" :src="homeImg[1]" alt="">
   </div>
   <div class="header" v-if="show">
-    <span class="i-1">
+    <span class="i-1" :style="{background: `url('${countStyle[0]}') no-repeat center/contain`}">
       <div class="rotate_w" v-for="item,index in rotateList" :key="index" @webkitAnimationEnd="removeDom2">
         <v-rotate :rotateBg="rotateBg" ref="rotate"></v-rotate>
       </div>
       <i>{{ClickTime}}</i>
     </span>
-    <span class="i-2"><i>{{sunTime}}s</i></span>
+    <span class="i-2" :style="{background: `url('${countStyle[1]}') no-repeat center/contain`}"><i>{{sunTime}}s</i></span>
   </div>
   <audio crossOrigin="anonymous" id="bgMusic" src="https://kouhigh.kouhigh.top/upload/app/2019_11_20/0d35b201911200944376732.mp3"></audio>
   <ul class="red_packet" v-if="show" id="red_packet">
@@ -26,7 +26,7 @@
   </ul>
   <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
     <div id='adv' v-if="value">
-      <div>
+      <div :style="{background: `url('${popImg}')no-repeat center/cover`}">
         <a id="close" @click="Close" style='position:absolute;z-index:1;right:0;top:0;color:#fff'>
           <span class="icon iconfont iconjiaocha_cross"></span>
         </a>
@@ -76,6 +76,19 @@ export default {
       type:String,
       default:''
     },
+    popImg:{
+      type:String,
+      default:'https://kouhigh.kouhigh.top/upload/app/2019_11_11/86356201911111013501774.png'
+    },
+    countStyle:{
+      type:Array,
+      default:()=> {
+        return [
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_25/71e58201910251636129054.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_25/a4491201910251635596227.png'
+        ]
+      }
+    },
     rotateBg:{
       type:Array,
       default:()=> {
@@ -85,7 +98,7 @@ export default {
         ]
       }
     },
-    count:{
+    homeImg:{
       type:Array,
       default:()=> {
         return [
@@ -146,7 +159,6 @@ export default {
   },
   watch: {
     reward(val){
-      console.log(val,'reward');
       this.value = true
     },
     sunTime(val) {
@@ -175,6 +187,7 @@ export default {
     Close(){
       this.$emit('input',false)
       this.$emit('Close')
+      this.value = false
     },
     Submit() {
       this.$emit('Submit')
@@ -218,10 +231,8 @@ export default {
       let win = document.documentElement.clientWidth || document.body.clientWidth
       let left = parseInt(Math.random() * (win - 50) + 0);
       let rotate = (parseInt(Math.random() * (45 - (-45)) - 45)) + "deg"; // 旋转角度
-      //   let rotate = "0deg"; // 旋转角度
       let scales = (Math.random() * (9 - 8 + 1) + 7) * this.scales; // 图片尺寸
       let durTime = (Math.random() * (2.5 - this.durTime + 1) + this.durTime) + 's'; // 时间  1.2和1.2这个数值保持一样
-      //   let durTime = '5s'; // 时间  1.2和1.2这个数值保持一样
       let val = this.hbTime % this.RedStyle.length
       this.liParams.push({
         left: left + 'px',
@@ -282,7 +293,6 @@ export default {
     position: relative;
     width: 300px;
     height: 380px;
-    background: url('https://kouhigh.kouhigh.top/upload/app/2019_11_11/86356201911111013501774.png')no-repeat center/cover;
   }
 
   #close {
@@ -412,14 +422,11 @@ li {
     .i-1 {
       width: 102px;
       height: 40px;
-      background: url('https://kouhigh.kouhigh.top/upload/app/2019_10_25/71e58201910251636129054.png') no-repeat center/contain;
     }
 
     .i-2 {
       width: 90px;
       height: 30px;
-      background: url('https://kouhigh.kouhigh.top/upload/app/2019_10_25/a4491201910251635596227.png') no-repeat center/contain;
-
     }
 
     .i-1,

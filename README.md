@@ -29,7 +29,6 @@ Vue.use(RedRotate)  //银币旋转
 
 # props
 
-
 sunTimePop   // 红包雨持续时间
   type:Number,
   default:30
@@ -48,6 +47,12 @@ Bgcolor   // 红包雨背景灰度
   default:0.2
 
 reward   // 弹框中的金额
+  type:String,
+
+homeImg
+  type:Array, //首页上下background
+
+popImg //弹框样式
   type:String,
 
 defaultNumImg    // 倒计时
