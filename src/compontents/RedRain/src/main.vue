@@ -111,11 +111,11 @@ export default {
       type:Array,
       default:()=> {
         return [
-          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/b204920191026095917842.png',
-          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/fdd8a201910260959259069.png',
-          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/ba8ee201910260959349423.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/84a50201910260959516428.png',
           'https://kouhigh.kouhigh.top/upload/app/2019_10_26/571ce201910260959433938.png',
-          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/84a50201910260959516428.png'
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/ba8ee201910260959349423.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/fdd8a201910260959259069.png',
+          'https://kouhigh.kouhigh.top/upload/app/2019_10_26/b204920191026095917842.png',
         ]
       }
     },
@@ -143,7 +143,7 @@ export default {
       rotateList: [],
       hbTime: 0,
       ClickTime: 0,
-      numImg: this.defaultNumImg[4],
+      numImg: this.defaultNumImg[0],
       numImgType: this.defaultNumImg.length,
       sunTime: sunTimePop,
       config:{},
@@ -169,9 +169,9 @@ export default {
       }
     },
     numImgType(val) {
-      console.log(val)
+      console.log(this.defaultNumImg.length - val)
       if(val>0){
-        this.numImg = this.defaultNumImg[val-1]
+        this.numImg = this.defaultNumImg[this.defaultNumImg.length - val]
       }else{
         this.show = true;
         this.sunTime = this.sunTimePop;
