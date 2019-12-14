@@ -18,7 +18,7 @@
   <ul class="red_packet" v-if="show" id="red_packet">
     <template v-for="(item, index) in liParams">
       <li :style="{ left: item.left, animationDuration: item.durTime, webkitAnimationDuration: item.durTime}" :class="item.cls" :data-index="index" @webkitAnimationEnd="removeDom">
-        <a @touchstart="open" @click="open">
+        <a @touchstart="open" @click="open" style="transition: all 0.4s linear">
           <i :style="{ transform: item.transforms, webkitTransform: item.transforms,'background':`url(${item.hb}) no-repeat center/contain`}"></i>
         </a>
       </li>
