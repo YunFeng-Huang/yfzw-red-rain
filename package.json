@@ -1,7 +1,7 @@
 {
   "name": "yfzw-red-rain",
   "description": "A Vue.js project",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "author": "yunfeng <yunfengjz@qq.com>",
   "license": "MIT",
   "private": false,
@@ -9,6 +9,10 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yunfengziwen/yfzw-red-rain.git"
   },
   "dependencies": {
     "animate.css": "^3.7.2",
