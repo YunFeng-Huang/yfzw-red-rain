@@ -22,7 +22,6 @@ Vue.use(RedRotate)  //银币旋转
 --------------------------------------
 
 # <v-red-rain 
-    v-model="advShow" 
     @Submit="submit" 
     @Close="close" 
     @Ended="Ended"></v-red-rain>
