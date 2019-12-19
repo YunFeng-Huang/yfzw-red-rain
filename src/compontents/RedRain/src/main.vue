@@ -267,6 +267,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style lang="scss" scoped>
+$imgBg:300px;
 .adv_i {
   position: fixed;
   z-index: -1;
@@ -291,8 +292,8 @@ export default {
 
   div {
     position: relative;
-    width: 300px;
-    height: 380px;
+    width: $imgBg;
+    height: 537/426*$imgBg;
   }
 
   #close {

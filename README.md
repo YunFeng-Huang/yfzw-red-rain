@@ -4,9 +4,14 @@
 
 ## Build Setup
 
+## 效果预览：
+![images]
 ``` 
 
 npm i yfzw-red-rain
+
+
+
 
 //红包雨
 import RedRain from 'yfzw-red-rain'
