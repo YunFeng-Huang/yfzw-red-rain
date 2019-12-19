@@ -5,7 +5,7 @@
 ## Build Setup
 
 ## 效果预览：
-![images]
+![images]https://github.com/yunfengziwen/yfzw-red-rain/blob/master/images/big.jpg
 ``` 
 
 npm i yfzw-red-rain
