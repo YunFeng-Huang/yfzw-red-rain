@@ -1,9 +1,9 @@
 <template>
 <div class="ser_home" :style="{'background':`rgba(0, 0, 0, ${Bgcolor}`}">
-  <div class="num" @click="show = true" v-if="numImgType > 0">
-    <img class="a1" v-if="!show" :src="homeImg[0]" alt="">
+  <div class="num" v-if="numImgType > 0">
+    <img class="a1" :src="homeImg[0]" alt="">
     <p style="margin:0;transform: translateY(-20px);"><img :src="numImg"></p>
-    <img class="a2" v-if="!show" :src="homeImg[1]" alt="">
+    <img class="a2" :src="homeImg[1]" alt="">
   </div>
   <div class="header" v-if="show">
     <span class="i-1" :style="{background: `url('${countStyle[0]}') no-repeat center/contain`}">
