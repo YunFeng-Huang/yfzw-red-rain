@@ -11,7 +11,7 @@ import RedRotate from "./RedRotate/index";
 const components = [
   RedRain,
   RedRotate
-  // ...如果还有的话继续添加
+  // ...如果还有的话继续添加1
 ];
 
 const install = function(Vue, opts = {}) {
