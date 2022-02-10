@@ -18,7 +18,7 @@
     "animate.css": "^3.7.2",
     "js-yaml": "^3.13.1",
     "mem": "^6.0.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.3.1",
     "url-loader": "^3.0.0",
     "vue": "^2.5.11"
